@@ -1,0 +1,69 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlin.android'
+}
+apply plugin: 'kotlin-kapt'
+
+android {
+    namespace 'com.tieuvy.android.base'
+    compileSdk 33
+
+    defaultConfig {
+        minSdk 24
+        targetSdk 33
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+    kotlinOptions {
+        jvmTarget = '17'
+    }
+    buildFeatures {
+        viewBinding = true
+        dataBinding = true
+    }
+}
+
+dependencies {
+
+    implementation 'androidx.core:core-ktx:1.8.0'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.9.0'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+
+    def navigation_version = "2.5.3"
+    implementation "androidx.navigation:navigation-fragment:${navigation_version}"
+    implementation "androidx.navigation:navigation-ui:${navigation_version}"
+    implementation "androidx.navigation:navigation-fragment-ktx:${navigation_version}"
+    implementation "androidx.navigation:navigation-ui-ktx:${navigation_version}"
+
+    def lifecycle_version = "2.2.0"
+    implementation "androidx.lifecycle:lifecycle-extensions:${lifecycle_version}"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:${lifecycle_version}"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:${lifecycle_version}"
+    implementation "androidx.lifecycle:lifecycle-runtime:${lifecycle_version}"
+
+
+    def glide_version = "4.15.1"
+    implementation "com.github.bumptech.glide:glide:${glide_version}"
+    annotationProcessor "com.github.bumptech.glide:compiler:${glide_version}"
+    implementation 'jp.wasabeef:glide-transformations:4.3.0'
+
+    // size
+    implementation 'com.intuit.sdp:sdp-android:1.1.0'
+
+    implementation "com.airbnb.android:lottie:5.2.0"
+}

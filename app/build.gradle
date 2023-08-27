@@ -1,0 +1,129 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id("io.objectbox")
+    id 'kotlin-parcelize'
+    id 'org.jetbrains.kotlin.plugin.serialization' version '1.8.21'
+
+}
+apply plugin: 'kotlin-kapt'
+apply plugin: "androidx.navigation.safeargs.kotlin"
+apply plugin: 'kotlinx-serialization'
+apply plugin: "io.objectbox"
+
+android {
+    namespace 'com.tieuvy.android.base_mvvm_android_2'
+    compileSdk 33
+
+    defaultConfig {
+        applicationId "com.tieuvy.android.base_mvvm_android_2"
+        minSdk 24
+        targetSdk 33
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            resValue("string", "PORT_NUMBER", "8081")
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+    kotlinOptions {
+        jvmTarget = '17'
+    }
+    buildFeatures {
+        dataBinding = true
+    }
+    objectbox {
+        debug = true
+    }
+}
+
+dependencies {
+
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation project(path: ':base')
+
+    implementation 'androidx.core:core-ktx:1.8.0'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.5.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+
+    implementation 'androidx.preference:preference:1.2.1'
+    implementation 'androidx.multidex:multidex:2.0.1'
+
+//    implementation "com.airbnb.android:lottie:5.2.0"
+
+//    // size
+//    implementation 'com.intuit.sdp:sdp-android:1.1.0'
+
+    def navigation_version = "2.5.3"
+    implementation "androidx.navigation:navigation-fragment:${navigation_version}"
+    implementation "androidx.navigation:navigation-ui:${navigation_version}"
+    implementation "androidx.navigation:navigation-fragment-ktx:${navigation_version}"
+    implementation "androidx.navigation:navigation-ui-ktx:${navigation_version}"
+
+    def lifecycle_version = "2.2.0"
+    implementation "androidx.lifecycle:lifecycle-extensions:${lifecycle_version}"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:${lifecycle_version}"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:${lifecycle_version}"
+    implementation "androidx.lifecycle:lifecycle-runtime:${lifecycle_version}"
+
+    implementation 'com.jakewharton.rxbinding4:rxbinding:4.0.0'
+
+
+
+    debugImplementation 'com.amitshekhar.android:debug-db:1.0.6'
+
+    def koin_version = "3.3.0"
+    def koin_core_version = "3.2.2"
+    implementation "io.insert-koin:koin-core:${koin_core_version}"
+    implementation "io.insert-koin:koin-android:${koin_version}"
+    implementation "io.insert-koin:koin-androidx-navigation:${koin_version}"
+    implementation "io.insert-koin:koin-androidx-compose:${koin_version}"
+
+
+    //storage
+    implementation 'com.tencent:mmkv:1.2.16'
+
+    def room_version = "2.4.3"
+    implementation "androidx.room:room-runtime:$room_version"
+    //kapt "androidx.room:room-compiler:$room_version"
+
+    kapt "androidx.room:room-ktx:$room_version"
+
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.1")
+    // client api
+    def ktor_version= "2.3.0"
+    implementation("io.ktor:ktor-client-core:$ktor_version")
+    implementation("io.ktor:ktor-client-cio:$ktor_version")
+    implementation("io.ktor:ktor-client-resources:$ktor_version")
+    implementation("io.ktor:ktor-client-content-negotiation:$ktor_version")
+    implementation("io.ktor:ktor-serialization-kotlinx-json:$ktor_version")
+    implementation("io.ktor:ktor-client-logging:$ktor_version")
+    implementation("io.ktor:ktor-client-okhttp:2.2.3")
+
+    debugImplementation("com.github.chuckerteam.chucker:library:3.5.2")
+    releaseImplementation("com.github.chuckerteam.chucker:library-no-op:3.5.2")
+
+//    def objectboxVersion = "3.7.0"
+//    debugImplementation("io.objectbox:objectbox-android-objectbrowser:$objectboxVersion")
+//    releaseImplementation("io.objectbox:objectbox-android:$objectboxVersion")
+    // view debug in http://localhost:8090/index.html
+}
+kapt {
+    correctErrorTypes true
+}

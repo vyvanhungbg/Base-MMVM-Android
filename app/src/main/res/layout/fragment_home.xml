@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="viewModel"
+            type="com.tieuvy.android.base_mvvm_android_2.presentation.home.HomeViewModel" />
+
+        <variable
+            name="clickSearch"
+            type="android.view.View.OnClickListener" />
+    </data>
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".presentation.home.HomeFragment">
+
+       <androidx.constraintlayout.widget.ConstraintLayout
+           android:layout_width="match_parent"
+           android:layout_height="match_parent">
+           <EditText
+               android:id="@+id/edit_text"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:hint="Enter name"
+               android:text="@={viewModel.textSearch}"
+               app:layout_constraintTop_toTopOf="parent"/>
+
+           <TextView
+               android:id="@+id/textView"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_margin="@dimen/_12sdp"
+               android:padding="@dimen/_12sdp"
+               android:text="@{viewModel.users.toString()}"
+               app:layout_constraintBottom_toBottomOf="parent"
+               app:layout_constraintEnd_toEndOf="parent"
+               app:layout_constraintStart_toStartOf="parent"
+               app:layout_constraintTop_toBottomOf="@id/edit_text" />
+
+           <Button
+               android:id="@+id/btn"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:text="SEARCH"
+               android:imeOptions="actionSearch"
+               android:layout_margin="@dimen/_12sdp"
+               android:onClick="@{clickSearch}"
+               app:layout_constraintBottom_toBottomOf="parent"
+               />
+       </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </FrameLayout>
+</layout>
