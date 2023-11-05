@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.hungvv.base_mvvm_android_3.presentation.detail.DetailViewModel" />
+
+        <variable
+            name="onOpenBrowserClick"
+            type="android.view.View.OnClickListener" />
+    </data>
+
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.hungvv.base_mvvm_android_3.presentation.detail.DetailFragment">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <include
+                android:id="@+id/layout_header"
+                layout="@layout/layout_tool_bar_top"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/card_view_avatar"
+                android:layout_width="0dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:cardUseCompatPadding="true"
+                app:layout_constraintDimensionRatio="1:1"
+                app:cardCornerRadius="@dimen/_12sdp"
+                app:strokeWidth="0dp"
+                app:layout_constraintTop_toBottomOf="@id/layout_header"
+                android:layout_marginTop="@dimen/_24sdp"
+                android:layout_height="0dp">
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    url="@{viewModel.user.avatarUrl}"
+                    />
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:id="@+id/text_view_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_12sdp"
+                android:text="@{viewModel.user.login}"
+                android:textSize="@dimen/_16sdp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/card_view_avatar" />
+
+            <Button
+                android:id="@+id/button_open_browser"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_12sdp"
+                android:text="@string/open_browser"
+                onPreventDoubleClick="@{onOpenBrowserClick}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/text_view_name" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </FrameLayout>
+</layout>

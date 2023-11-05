@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.hungvv.base_mvvm_android_3.presentation.home.HomeViewModel" />
+
+        <variable
+            name="onSearchClick"
+            type="android.view.View.OnClickListener" />
+    </data>
+
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.hungvv.base_mvvm_android_3.presentation.home.HomeFragment">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/text_input_layout_search"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_12sdp"
+                app:boxStrokeColor="@color/teal_200"
+                app:endIconMode="clear_text"
+                app:errorIconDrawable="@null"
+                app:hintTextColor="@color/teal_700"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:startIconDrawable="@drawable/baseline_search_24">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/text_input_edit_text_search"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/hint_search_user"
+                    android:imeOptions="actionSearch"
+                    android:text="@={viewModel.textSearch}"
+                    android:inputType="text" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:id="@+id/button_search"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_12sdp"
+                android:text="@string/search"
+                onPreventDoubleClick="@{onSearchClick}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/text_input_layout_search" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_view_user"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:overScrollMode="never"
+                visible="@{viewModel.users.empty == false}"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintTop_toBottomOf="@id/button_search"
+                android:layout_marginTop="@dimen/_24sdp"
+                tools:itemCount="5"
+                tools:listitem="@layout/item_user"
+                android:layout_marginHorizontal="@dimen/_12sdp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/button_search"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                visible="@{viewModel.users.empty == true}"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:text="@string/no_data_please_check_your_internet"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </FrameLayout>
+</layout>

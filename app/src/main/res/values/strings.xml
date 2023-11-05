@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name" translatable="false">Base-MVVM-Android-3</string>
+    <string name="hint_search_user">Enter name ...</string>
+    <string name="search">Search</string>
+    <string name="please_enter_name">Please enter name !</string>
+    <string name="no_data_please_check_your_internet">No data !</string>
+    <string name="detail">Detail</string>
+    <string name="no_user_defined">No user defined !</string>
+    <string name="can_not_open_browser">Can not open browser !</string>
+    <string name="open_browser">Open browser</string>
+</resources>

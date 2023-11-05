@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="toolbarConfig"
+            type="com.tieuvy.android.base.config.ToolbarConfig" />
+    </data>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/tool_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            app:titleTextColor="@color/black"
+            app:title="@{toolbarConfig.title}"
+            onClickBackToolBar="@{toolbarConfig.onBackClick}"
+            app:navigationIcon="@drawable/icon_back_black_24"/>
+    </LinearLayout>
+</layout>

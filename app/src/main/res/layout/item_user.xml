@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="user"
+            type="com.hungvv.base_mvvm_android_3.data.model.User" />
+        <variable
+            name="itemClick"
+            type="android.view.View.OnClickListener" />
+    </data>
+    <com.google.android.material.card.MaterialCardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        app:cardUseCompatPadding="true"
+        app:strokeWidth="0dp"
+        app:cardElevation="@dimen/_4sdp"
+        android:onClick="@{itemClick}"
+        android:layout_height="wrap_content">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/layout_avatar"
+                android:layout_width="0dp"
+                app:layout_constraintDimensionRatio="1:1"
+                app:strokeWidth="0dp"
+                app:cardUseCompatPadding="false"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_height="0dp">
+                <ImageView
+                    url="@{user.avatarUrl}"
+                    android:scaleType="centerCrop"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+            </com.google.android.material.card.MaterialCardView>
+
+            <TextView
+                android:id="@+id/text_view_name"
+                android:layout_width="0dp"
+                android:layout_marginTop="@dimen/_4sdp"
+                android:layout_marginHorizontal="@dimen/_12sdp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                android:text="@{user.login}"
+                tools:text ="name"
+                android:textStyle="bold"
+                android:textSize="@dimen/_14sdp"
+                app:layout_constraintStart_toEndOf="@id/layout_avatar"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+            <TextView
+                android:id="@+id/text_view_url"
+                android:layout_width="0dp"
+                android:paddingBottom="@dimen/_4sdp"
+                android:layout_marginTop="@dimen/_4sdp"
+                android:layout_marginHorizontal="@dimen/_12sdp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/text_view_name"
+                android:text="@{user.accountUrl}"
+                tools:text ="name"
+                android:marqueeRepeatLimit="marquee_forever"
+                android:scrollHorizontally="true"
+                android:ellipsize="marquee"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:textStyle="italic"
+                app:layout_constraintStart_toEndOf="@id/layout_avatar"
+                app:layout_constraintEnd_toEndOf="parent"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
+</layout>

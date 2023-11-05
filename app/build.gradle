@@ -1,0 +1,82 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+   // id("io.objectbox")
+    id 'kotlin-parcelize'
+}
+apply plugin: "androidx.navigation.safeargs.kotlin"
+android {
+    namespace 'com.hungvv.base_mvvm_android_3'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.hungvv.base_mvvm_android_3"
+        minSdk 24
+        targetSdk 34
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    buildFeatures {
+        viewBinding = true
+        dataBinding = true
+        buildConfig = true
+    }
+}
+
+dependencies {
+
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation project(path: ':base')
+
+    implementation 'androidx.core:core-ktx:1.9.0'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.10.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+
+    def navigation_version = "2.5.3"
+    implementation "androidx.navigation:navigation-fragment:${navigation_version}"
+    implementation "androidx.navigation:navigation-ui:${navigation_version}"
+    implementation "androidx.navigation:navigation-fragment-ktx:${navigation_version}"
+    implementation "androidx.navigation:navigation-ui-ktx:${navigation_version}"
+
+//    di
+    def koin_version = "3.3.0"
+    def koin_core_version = "3.2.2"
+    implementation "io.insert-koin:koin-core:${koin_core_version}"
+    implementation "io.insert-koin:koin-android:${koin_version}"
+    implementation "io.insert-koin:koin-androidx-navigation:${koin_version}"
+    implementation "io.insert-koin:koin-androidx-compose:${koin_version}"
+
+    implementation 'com.tencent:mmkv:1.3.1'
+
+
+    //Retrofit
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.google.code.gson:gson:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.9.3'
+
+    // debugging object box
+    debugImplementation("io.objectbox:objectbox-android-objectbrowser:$objectboxVersion")
+    releaseImplementation("io.objectbox:objectbox-android:$objectboxVersion")
+}
+apply plugin: 'io.objectbox'

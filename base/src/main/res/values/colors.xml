@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="transparent">#00000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="black2">#202124</color>
+    <color name="black3">#3B3C40</color>
+    <color name="black_transparent">#2C000000</color>
+    <color name="black_transparent2">#5E000000</color>
+    <color name="black_transparent3">#40000000</color>
+    <color name="gray">#7D7D7D</color>
+    <color name="gray4">#F8F8F8</color>
+    <color name="gray5">#CCCCCC</color>
+    <color name="gray6">#666666</color>
+    <color name="gray10">#9E9E9E</color>
+    <color name="gray11">#5F6267</color>
+    <color name="gray12">#E0E0E0</color>
+    <color name="gray14">#9BA0A6</color>
+    <color name="gray15">#9C9FA6</color>
+    <color name="gray16">#2A2A2E</color>
+    <color name="gray17">#636466</color>
+    <color name="gray18">#B2B2B2</color>
+    <color name="gray19">#424242</color>
+    <color name="gray_transparent2">#6B7D7D7D</color>
+    <color name="yellow">#FDD70A</color>
+    <color name="blue">#00B1FF</color>
+    <color name="blue2">#9EDBF7</color>
+    <color name="blue3">#00BFC9</color>
+    <color name="blue4">#1A73E9</color>
+    <color name="green">#46CC47</color>
+    <color name="red">#FB2A2D</color>
+    <color name="orange">#FF9700</color>
+</resources>
