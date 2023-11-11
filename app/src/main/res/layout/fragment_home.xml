@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.home.HomeFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/margin_12dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layout_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:elevation="@dimen/_5dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/search_view"
+                android:layout_width="@dimen/_0dp"
+                android:layout_height="match_parent"
+                android:elevation="@dimen/_10dp"
+                app:cardCornerRadius="@dimen/_10dp"
+                app:cardUseCompatPadding="true"
+                app:layout_constraintEnd_toStartOf="@id/layout_notification"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    android:cursorVisible="false"
+                    android:drawablePadding="@dimen/_10dp"
+                    android:focusable="false"
+                    android:hint="@string/text_search"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:paddingStart="@dimen/_10dp"
+                    android:paddingTop="@dimen/_10dp"
+                    android:paddingEnd="@dimen/_10dp"
+                    android:paddingBottom="@dimen/_8dp"
+                    android:textColorHint="@color/color_main_green_900"
+                    android:textCursorDrawable="@drawable/bg_cursor"
+                    app:drawableStartCompat="@drawable/ic_search_green_24dp" />
+            </com.google.android.material.card.MaterialCardView>
+
+            <FrameLayout
+                android:id="@+id/layout_notification"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_12dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/layout_cart"
+                app:layout_constraintStart_toEndOf="@id/search_view"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/image_view_ring"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/_5dp"
+                    android:src="@drawable/ic_notification_green_24dp" />
+
+                <TextView
+                    android:id="@+id/text_view_amount_notification"
+                    android:layout_width="@dimen/_16dp"
+                    android:layout_height="@dimen/_16dp"
+                    android:layout_gravity="top|end"
+                    android:background="@drawable/bg_badge_icon"
+                    android:gravity="center"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_size_12sp"
+                    android:visibility="gone" />
+            </FrameLayout>
+
+
+            <FrameLayout
+                android:id="@+id/layout_cart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_12dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/layout_notification"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/image_view_cart"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/_5dp"
+                    android:src="@drawable/ic_cart_green_24dp" />
+
+                <TextView
+                    android:id="@+id/text_view_amount_cart"
+                    android:layout_width="@dimen/_16dp"
+                    android:layout_height="@dimen/_16dp"
+                    android:layout_gravity="top|end"
+                    android:background="@drawable/bg_badge_icon"
+                    android:gravity="center"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/text_size_12sp"
+                    android:visibility="gone" />
+            </FrameLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/swipe_refresh_layout"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/layout_header">
+
+            <ScrollView
+                android:id="@+id/scroll_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fillViewport="true"
+                android:scrollbars="none">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/card_view_slider"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_150dp"
+                        android:layout_marginBottom="@dimen/margin_12dp"
+                        android:elevation="@dimen/_5dp"
+                        app:cardCornerRadius="@dimen/corners_10dp"
+                        app:cardUseCompatPadding="true"
+                        app:layout_constraintBottom_toTopOf="@id/card_view_category"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <com.smarteist.autoimageslider.SliderView
+                            android:id="@+id/slider_view"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            app:sliderAnimationDuration="600"
+                            app:sliderAutoCycleDirection="back_and_forth"
+                            app:sliderAutoCycleEnabled="true"
+                            app:sliderIndicatorAnimationDuration="600"
+                            app:sliderIndicatorGravity="center_horizontal|bottom"
+                            app:sliderIndicatorMargin="@dimen/margin_20dp"
+                            app:sliderIndicatorOrientation="horizontal"
+                            app:sliderIndicatorPadding="@dimen/_3dp"
+                            app:sliderIndicatorRadius="@dimen/_2dp"
+                            app:sliderIndicatorSelectedColor="@color/color_main_green"
+                            app:sliderIndicatorUnselectedColor="@color/white"
+                            app:sliderScrollTimeInSec="3"
+                            app:sliderStartAutoCycle="true" />
+
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/card_view_category"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_12dp"
+                        android:elevation="@dimen/_2dp"
+                        android:padding="@dimen/_8dp"
+                        app:cardCornerRadius="@dimen/corners_10dp"
+                        app:cardUseCompatPadding="true"
+                        app:layout_constraintTop_toBottomOf="@id/card_view_slider">
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/recycler_view_category"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                            app:spanCount="2"
+                            tools:itemCount="8"
+                            tools:listitem="@layout/item_category" />
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/card_view_book"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_12dp"
+                        android:elevation="@dimen/_2dp"
+                        app:cardCornerRadius="@dimen/corners_10dp"
+                        app:cardUseCompatPadding="true"
+                        app:layout_constraintTop_toBottomOf="@id/card_view_category">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/_8dp">
+
+                            <TextView
+                                android:id="@+id/text_view_all_book"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="@dimen/margin_8dp"
+                                android:text="@string/text_view_more"
+                                android:textAlignment="textEnd"
+                                android:textColor="@color/color_main_green_900"
+                                android:textStyle="bold"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/margin_8dp"
+                                android:text="@string/text_outstanding"
+                                android:textAlignment="textEnd"
+                                android:textSize="@dimen/text_size_18sp"
+                                android:textStyle="bold"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <androidx.recyclerview.widget.RecyclerView
+                                android:id="@+id/recycler_view_book"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/margin_8dp"
+                                android:orientation="horizontal"
+                                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                                app:layout_constraintTop_toBottomOf="@+id/text_view_all_book"
+                                tools:itemCount="8"
+                                tools:listitem="@layout/item_book" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/card_view_author"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_12dp"
+                        android:elevation="@dimen/_2dp"
+                        app:cardCornerRadius="@dimen/corners_10dp"
+                        app:cardUseCompatPadding="true"
+                        app:layout_constraintTop_toBottomOf="@id/card_view_book">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="@dimen/_8dp">
+
+                            <TextView
+                                android:id="@+id/text_view_all_author"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="@dimen/margin_8dp"
+                                android:text="@string/text_view_more"
+                                android:textAlignment="textEnd"
+                                android:textColor="@color/color_main_green_900"
+                                android:textStyle="bold"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/margin_8dp"
+                                android:text="@string/text_author_interested"
+                                android:textAlignment="textEnd"
+                                android:textSize="@dimen/text_size_18sp"
+                                android:textStyle="bold"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <androidx.recyclerview.widget.RecyclerView
+                                android:id="@+id/recycler_view_author"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/margin_8dp"
+                                android:orientation="horizontal"
+                                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                                app:layout_constraintTop_toBottomOf="@+id/text_view_all_author"
+                                tools:itemCount="8"
+                                tools:listitem="@layout/item_author" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+                    </androidx.cardview.widget.CardView>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </ScrollView>
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>

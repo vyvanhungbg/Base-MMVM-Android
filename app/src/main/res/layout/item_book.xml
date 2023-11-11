@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="@dimen/_140dp"
+    android:layout_height="@dimen/_250dp"
+    android:layout_marginTop="@dimen/_8dp"
+    android:layout_marginRight="@dimen/_8dp"
+    android:layout_marginLeft="@dimen/_8dp"
+    android:orientation="vertical">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_180dp"
+        android:elevation="@dimen/_5dp"
+        app:cardCornerRadius="@dimen/_5dp"
+        app:cardUseCompatPadding="true"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/image_view_item"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"
+            android:src="@drawable/image_book_logo" />
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/text_view_item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:maxLines="2"
+        android:paddingLeft="@dimen/_8dp"
+        android:paddingTop="@dimen/_8dp"
+        android:paddingRight="@dimen/_8dp"
+        android:textSize="@dimen/text_size_18sp"
+        android:textStyle="bold"
+        tools:text="@string/string_default" />
+</LinearLayout>

@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_bottom_main"
+    app:startDestination="@id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_login"
+        android:name="com.atom.android.lebo.ui.authentication.login.LoginFragment"
+        tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/action_navigation_login_to_navigation_home"
+            app:destination="@id/navigation_home"
+            app:popUpTo="@id/navigation_login"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_navigation_login_to_navigation_login_otp"
+            app:destination="@id/navigation_login_otp" />
+        <action
+            android:id="@+id/action_navigation_login_to_navigation_forgot_password"
+            app:destination="@id/navigation_forgot_password" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.atom.android.lebo.ui.home.HomeFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_login"
+            app:destination="@id/navigation_login" />
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_detail"
+            app:destination="@id/navigation_detail" />
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_cart"
+            app:destination="@id/navigation_cart" />
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_notification"
+            app:destination="@id/navigation_notification" />
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_bill"
+            app:destination="@id/navigation_bill" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_login_otp"
+        android:name="com.atom.android.lebo.ui.authentication.loginOTP.LoginOTPFragment"
+        android:label="fragment_login_o_t_p"
+        tools:layout="@layout/fragment_login_o_t_p">
+        <action
+            android:id="@+id/action_navigation_login_otp_to_navigation_home"
+            app:destination="@id/navigation_home" />
+        <action
+            android:id="@+id/action_navigation_login_otp_to_navigation_login"
+            app:destination="@id/navigation_login" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_forgot_password"
+        android:name="com.atom.android.lebo.ui.authentication.forgotpassword.ForgotPasswordFragment"
+        android:label="fragment_forgot_password"
+        tools:layout="@layout/fragment_forgot_password">
+        <action
+            android:id="@+id/action_navigation_forgot_password_to_navigation_login"
+            app:destination="@id/navigation_login" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_favorite"
+        android:name="com.atom.android.lebo.ui.favorite.FavoriteFragment"
+        android:label="fragment_favorite"
+        tools:layout="@layout/fragment_favorite">
+        <action
+            android:id="@+id/action_navigation_favorite_to_navigation_detail"
+            app:destination="@id/navigation_detail" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_library"
+        android:name="com.atom.android.lebo.ui.library.LibraryFragment"
+        android:label="fragment_library"
+        tools:layout="@layout/fragment_library" />
+    <fragment
+        android:id="@+id/navigation_account"
+        android:name="com.atom.android.lebo.ui.account.AccountFragment"
+        android:label="fragment_account"
+        tools:layout="@layout/fragment_account">
+        <action
+            android:id="@+id/action_navigation_account_to_navigation_login"
+            app:destination="@id/navigation_login"
+            app:popUpTo="@id/navigation_account"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_navigation_account_to_navigation_change_password"
+            app:destination="@id/navigation_change_password" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_change_password"
+        android:name="com.atom.android.lebo.ui.changepassword.ChangePasswordFragment"
+        android:label="fragment_change_password"
+        tools:layout="@layout/fragment_change_password">
+        <action
+            android:id="@+id/action_navigation_change_password_to_navigation_account"
+            app:destination="@id/navigation_account" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_detail"
+        android:name="com.atom.android.lebo.ui.detail.DetailFragment"
+        android:label="DetailFragment">
+        <deepLink
+            android:autoVerify="true"
+            app:action="android.intent.action.View"
+            app:mimeType="type/subtype"
+            app:uri="booki-shop.herokuapp.com/book/{bundle_book}" />
+        <argument
+            android:name="bundle_book"
+            android:defaultValue='"-1"'
+            app:argType="string" />
+        <action
+            android:id="@+id/action_navigation_detail_self"
+            app:destination="@id/navigation_detail" />
+        <action
+            android:id="@+id/action_navigation_detail_to_navigation_cart"
+            app:destination="@id/navigation_cart" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_cart"
+        android:name="com.atom.android.lebo.ui.cart.CartFragment"
+        android:label="fragment_cart"
+        tools:layout="@layout/fragment_cart">
+        <action
+            android:id="@+id/action_navigation_cart_to_navigation_detail"
+            app:destination="@id/navigation_detail" />
+        <action
+            android:id="@+id/action_navigation_cart_to_navigation_checkout"
+            app:destination="@id/navigation_checkout" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_checkout"
+        android:name="com.atom.android.lebo.ui.checkout.CheckoutFragment"
+        android:label="CheckoutFragment" >
+        <action
+            android:id="@+id/action_navigation_checkout_to_navigation_login"
+            app:destination="@id/navigation_login" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_notification"
+        android:name="com.atom.android.lebo.ui.notification.NotificationFragment"
+        android:label="fragment_notification"
+        tools:layout="@layout/fragment_notification">
+        <action
+            android:id="@+id/action_navigation_notification_to_navigation_bill"
+            app:destination="@id/navigation_bill" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_bill"
+        android:name="com.atom.android.lebo.ui.order.OrderDetailFragment"
+        android:label="OrderDetailFragment">
+        <argument
+            android:name="bundle_id"
+            android:defaultValue='-1'
+            app:argType="integer" />
+    </fragment>
+</navigation>

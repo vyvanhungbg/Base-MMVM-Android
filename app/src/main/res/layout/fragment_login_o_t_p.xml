@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.authentication.loginOTP.LoginOTPFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gl_horizontal_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.12" />
+
+        <TextView
+            android:id="@+id/text_view_login_now"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLines="2"
+            android:text="@string/text_login_otp"
+            android:textAllCaps="true"
+            android:textSize="@dimen/text_size_32sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@id/image_logo_login"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/gl_horizontal_1" />
+
+        <ImageView
+            android:id="@+id/image_logo_login"
+            android:layout_width="@dimen/_100dp"
+            android:layout_height="@dimen/_100dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/image_book_logo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/text_view_login_now"
+            app:layout_constraintTop_toTopOf="@id/gl_horizontal_1" />
+
+        <com.chaos.view.PinView
+            android:id="@+id/text_input_otp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_16dp"
+            android:layout_marginLeft="@dimen/margin_16dp"
+            android:layout_marginTop="@dimen/margin_70dp"
+            android:layout_marginEnd="@dimen/margin_16dp"
+            android:layout_marginRight="@dimen/margin_16dp"
+            android:cursorVisible="true"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:inputType="number"
+            android:textColor="@color/color_main_green_700"
+            android:textSize="@dimen/text_size_18sp"
+            app:itemCount="6"
+            app:itemRadius="@dimen/corners_5dp"
+            app:itemSpacing="@dimen/margin_8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/text_view_login_now"
+            app:lineColor="@color/color_main_green_900" />
+
+        <TextView
+            android:id="@+id/text_view_notification_login_otp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_12dp"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:textColor="@color/color_main_green_900"
+            app:layout_constraintStart_toStartOf="@id/text_input_otp"
+            app:layout_constraintTop_toBottomOf="@id/text_input_otp"
+            tools:text="@string/text_notification_login_otp" />
+
+        <LinearLayout
+            android:layout_width="@dimen/_0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="@id/text_input_otp"
+            app:layout_constraintStart_toStartOf="@id/text_input_otp"
+            app:layout_constraintTop_toBottomOf="@id/text_view_notification_login_otp">
+
+            <TextView
+                android:id="@+id/text_view_count_down"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_8dp"
+                android:textColor="@color/color_main_green_900"
+                tools:text="@string/message_wait_for_send_request" />
+
+            <TextView
+                android:id="@+id/text_view_resend"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_8dp"
+                android:layout_marginTop="@dimen/margin_8dp"
+                android:text="@string/resend_otp"
+                android:textColor="@color/color_red"
+                android:textSize="@dimen/text_size_16sp"
+                android:visibility="gone" />
+        </LinearLayout>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_16dp"
+            android:background="@drawable/bg_button_large_size"
+            android:text="@string/text_login"
+            android:textAllCaps="true"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/text_view_back"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/text_view_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_20dp"
+            android:orientation="horizontal"
+            android:text="@string/back"
+            android:textColor="@color/color_main_green_900"
+            android:textSize="@dimen/text_size_16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>

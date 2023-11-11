@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="UnusedResources">
+    <item>
+        <shape android:shape="oval">
+            <size
+                android:width="@dimen/_40dp"
+                android:height="@dimen/_40dp" />
+            <solid android:color="@color/color_main_green" />
+            <stroke
+                android:width="@dimen/_2dp"
+                android:color="@color/white" />
+        </shape>
+    </item>
+    <item
+        android:drawable="@drawable/ic_question_white_24dp"
+        android:gravity="center" />
+</layer-list>

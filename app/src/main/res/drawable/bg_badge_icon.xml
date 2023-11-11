@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="UnusedResources">
+    <item>
+        <shape android:shape="oval">
+            <size
+                android:width="@dimen/_16dp"
+                android:height="@dimen/_16dp" />
+            <solid android:color="@color/color_main_green" />
+
+        </shape>
+    </item>
+</layer-list>

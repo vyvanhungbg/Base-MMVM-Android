@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="@dimen/_65dp"
+    android:layout_height="@dimen/_120dp"
+    android:layout_margin="@dimen/margin_12dp">
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card_view_item"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_65dp"
+        app:cardCornerRadius="@dimen/_5dp"
+        app:cardUseCompatPadding="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/image_view_item"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"
+            android:src="@drawable/image_loading_default" />
+    </com.google.android.material.card.MaterialCardView>
+
+    <TextView
+        android:id="@+id/text_view_item"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_0dp"
+        android:padding="@dimen/_2dp"
+        android:textAlignment="center"
+        android:textSize="@dimen/text_size_14sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/card_view_item"
+        tools:text="@string/something" />
+</androidx.constraintlayout.widget.ConstraintLayout>
