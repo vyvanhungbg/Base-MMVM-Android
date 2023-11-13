@@ -6,8 +6,9 @@
         xmlns:app="http://schemas.android.com/apk/res-auto">
 
         <com.google.android.material.card.MaterialCardView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintWidth_percent="0.4"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintDimensionRatio="1,1"
             app:cardUseCompatPadding="true"
@@ -18,7 +19,7 @@
             app:layout_constraintEnd_toEndOf="parent">
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:orientation="vertical"
                 android:gravity="center"
                 android:paddingVertical="@dimen/_12sdp"
@@ -30,8 +31,8 @@
                     android:layout_gravity="center"/>
 
                 <com.airbnb.lottie.LottieAnimationView
-                    android:layout_width="@dimen/_50sdp"
-                    android:layout_height="@dimen/_50sdp"
+                    android:layout_width="@dimen/_100sdp"
+                    android:layout_height="@dimen/_100sdp"
                     app:lottie_rawRes="@raw/common_loading"
                     app:lottie_loop="true"
                     android:layout_gravity="center"
