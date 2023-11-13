@@ -3,6 +3,7 @@ plugins {
     id 'org.jetbrains.kotlin.android'
    // id("io.objectbox")
     id 'kotlin-parcelize'
+    id 'kotlin-kapt'
 }
 apply plugin: "androidx.navigation.safeargs.kotlin"
 android {
@@ -78,5 +79,11 @@ dependencies {
     // debugging object box
     debugImplementation("io.objectbox:objectbox-android-objectbrowser:$objectboxVersion")
     releaseImplementation("io.objectbox:objectbox-android:$objectboxVersion")
+
+
+    //epoxy
+    implementation "com.airbnb.android:epoxy:4.6.4"
+    kapt "com.airbnb.android:epoxy-processor:4.6.4"
+    implementation 'com.airbnb.android:epoxy-databinding:4.6.3'
 }
 apply plugin: 'io.objectbox'

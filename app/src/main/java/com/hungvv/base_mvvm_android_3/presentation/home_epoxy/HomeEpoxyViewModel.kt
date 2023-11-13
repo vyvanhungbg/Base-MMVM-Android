@@ -1,4 +1,4 @@
-package com.hungvv.base_mvvm_android_3.presentation.home
+package com.hungvv.base_mvvm_android_3.presentation.home_epoxy
 
 import android.content.Context
 import androidx.lifecycle.LiveData
@@ -18,12 +18,14 @@ import com.tieuvy.android.base.extension.isNetworkAvailable
 import com.tieuvy.android.base.extension.showToast
 import timber.log.Timber
 
-private const val TAG = "HomeViewModel"
 /**
 - Create by :Vy Hùng
 - Create at :05,November,2023
  **/
-class HomeViewModel(
+
+private const val TAG = "HomeEpoxyViewModel"
+
+class HomeEpoxyViewModel(
     private val searchUserByNameOnlineUseCase: SearchUserByNameOnlineUseCase,
     private val searchUserCaseByNameLocalUseCase: SearchUserByNameLocalUseCase,
     private val saveSearchResultUseCase: SaveResultOfSearchByNameUseCase,
@@ -72,10 +74,10 @@ class HomeViewModel(
                 )
             },
             onSuccess = {
-                Timber.e("success: ${it}")
+                Timber.e(" success : ${it}")
             },
             onError = {
-                Timber.e("error: ${it.message}")
+                Timber.e(" error: ${it.message}")
                 _users.value = emptyList()
             }, showLoading = false
         )
